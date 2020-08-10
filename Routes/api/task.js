@@ -62,6 +62,7 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
+      const { title, catagory } = req.body;
       const id = mongoose.Types.ObjectId(req.params.task_id);
       let task = await Task.findOne({ _id: id });
       if (!task) {
@@ -70,7 +71,7 @@ router.put(
 
       task = await Task.findOneAndUpdate(
         { _id: id },
-        { $set: req.body },
+        { $set: { title, catagory } },
         { new: true }
       );
 

@@ -1,0 +1,386 @@
+:root {
+  --primary-color: #6495ed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Quicksand;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  color: #333;
+  /* background-image: url("./istockphoto-1168750663-1024x1024.jpg"); */
+  background: var(--primary-color);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  width: 100vw;
+  height: 3rem;
+  background-color: lime;
+  padding: 0.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > h1 {
+  margin-left: 1rem;
+}
+
+/* Alert */
+.alert {
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  width: 90%;
+  margin: 0.5rem auto;
+  font-size: 1rem;
+  line-height: 1rem;
+  box-sizing: border-box;
+}
+
+.alert-danger {
+  background-color: #b91523;
+  color: #fff;
+}
+
+.alert-success {
+  background-color: #228b22;
+  color: #fff;
+}
+
+/* Home page */
+.container {
+  position: relative;
+  top: 3rem;
+  height: 100%;
+  width: 100%;
+}
+
+#landing,
+#dashboard {
+  position: relative;
+  height: fit-content;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#landing {
+  width: 90vw;
+  padding: 2rem;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-inner {
+  flex: 1;
+  padding: 2rem;
+}
+
+.large {
+  position: relative;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  /* background-color: white; */
+  padding: 0.2rem;
+  width: fit-content;
+}
+
+.validation {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 2rem;
+  min-height: 280px;
+}
+
+.validation > ul {
+  width: fit-content;
+  margin: auto;
+}
+
+.validation > ul > li {
+  display: inline-block;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.focus {
+  border: 1px solid black;
+  border-radius: 0 0 0.7rem 0.7rem;
+  background: #6494ed4b;
+}
+
+.form {
+  width: 90%;
+  margin: auto;
+}
+
+.form-input > input[type="text"],
+input[type="email"],
+input[type="password"],
+.create-task > input[type="text"],
+.create-task > select {
+  width: 100%;
+  height: 2rem;
+  margin: 0.5rem 0;
+  padding: 0.2rem;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+}
+
+.btn,
+.create-task > input[type="submit"],
+.create-task > input[type="reset"] {
+  width: 100%;
+  height: 2rem;
+  margin: 0.5rem 0;
+  padding: 0.2rem;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.create-task > input[type="submit"] {
+  width: 40%;
+  margin-top: 2rem;
+  float: right;
+}
+
+.create-task > input[type="reset"] {
+  width: 40%;
+  margin-top: 2rem;
+}
+
+/* dashboard */
+.drop-box {
+  display: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.box-open {
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+}
+
+.box-open > div {
+  height: 250px;
+  width: 300px;
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.create-task {
+  margin-top: 1rem;
+}
+
+.user {
+  margin: auto 1rem;
+}
+
+.user > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user > a > img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.sidebar {
+  flex: 1;
+  height: 100vh;
+  border-right: 2px solid black;
+  min-width: 200px;
+}
+
+.sidebar > ul > li {
+  display: block;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  border-bottom: 2px solid black;
+}
+
+.task-board {
+  flex: 4;
+  padding: 2rem;
+}
+
+.burger {
+  display: none;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.burger > div {
+  height: 2px;
+  width: 1rem;
+  background: black;
+  margin-bottom: 0.2rem;
+}
+
+#create,
+#edit,
+#delete {
+  height: 1.5rem;
+  width: 4rem;
+  box-sizing: content-box;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+#create {
+  margin: 1rem 0;
+}
+
+.tasks {
+  margin-top: 1rem;
+  display: block;
+  max-width: 500px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid black;
+}
+
+.task:last-child {
+  border-bottom: 1px solid black;
+}
+
+.task-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+/* Responiveness */
+@media screen and (max-width: 768px) {
+  #landing {
+    display: block;
+    padding: 0;
+  }
+
+  .landing-inner {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+  }
+
+  #dashboard {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .sidebar {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    transform: translate3d(-200px, 0, 0);
+  }
+
+  .open {
+    transform: translate3d(0, 0, 0);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .task-board {
+    display: inline-block;
+    width: 90vw;
+    height: 100vh;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.7s ease-out;
+  }
+
+  .cross {
+    left: calc(200px - 2rem);
+    transition: all 0.7s ease-out;
+  }
+
+  .cross > .line1 {
+    transform: rotate(-45deg) translate(0px, 0.22rem);
+    transition: all 0.5s ease-out;
+  }
+
+  .cross > .line2 {
+    display: none;
+    transition: all 0.5s ease-out;
+  }
+
+  .cross > .line3 {
+    transform: rotate(45deg) translate(0px, -0.22rem);
+    transition: all 0.5s ease-out;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .validation {
+    padding: 2rem 0;
+  }
+}
