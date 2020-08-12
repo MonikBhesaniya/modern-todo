@@ -1,5 +1,10 @@
 :root {
-  --primary-color: #6495ed;
+  --primary-color: #bbe1fa;
+  --dark-primary: #508eb8;
+  --xdark-primary: #0f4c75;
+  --secondary-color: #1b262c;
+  --danger: #900d0d;
+  --success: #158467;
 }
 
 * {
@@ -10,7 +15,7 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--primary-color);
 }
 
 ul {
@@ -22,7 +27,7 @@ body {
   width: 100vw;
   position: relative;
   overflow: hidden;
-  color: #333;
+  color: var(--secondary-color);
   /* background-image: url("./istockphoto-1168750663-1024x1024.jpg"); */
   background: var(--primary-color);
   background-size: cover;
@@ -33,7 +38,8 @@ body {
 .navbar {
   width: 100vw;
   height: 3rem;
-  background-color: lime;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 0.5rem;
   position: fixed;
   top: 0;
@@ -41,10 +47,31 @@ body {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid var(--dark-primary);
+  transition: all 0.3s ease-out;
 }
 
 .navbar > h1 {
   margin-left: 1rem;
+}
+
+.navbar a {
+  color: inherit;
+}
+
+.navbar a:hover {
+  color: var(--dark-primary);
+  transition: all 0.5s ease-in;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  margin-right: 1rem;
 }
 
 /* Alert */
@@ -59,12 +86,12 @@ body {
 }
 
 .alert-danger {
-  background-color: #b91523;
+  background-color: var(--danger);
   color: #fff;
 }
 
 .alert-success {
-  background-color: #228b22;
+  background-color: var(--success);
   color: #fff;
 }
 
@@ -107,10 +134,10 @@ body {
 .small {
   font-size: 1.3rem;
   margin-bottom: 10px;
-  border-radius: 5px;
-  /* background-color: white; */
-  padding: 0.2rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
   width: fit-content;
+  /* background: #85bee7; */
 }
 
 .validation {
@@ -118,6 +145,14 @@ body {
   padding: 2rem;
   margin-top: 2rem;
   min-height: 280px;
+  background: var(--dark-primary);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-out;
+}
+
+.validation:hover {
+  transition: all 0.3s ease-out;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 .validation > ul {
@@ -132,12 +167,15 @@ body {
   font-weight: 400;
   cursor: pointer;
   text-transform: capitalize;
+  transition: all 0.5s ease-out;
 }
 
 .focus {
-  border: 1px solid black;
+  border: 1px solid var(--dark-primary);
   border-radius: 0 0 0.7rem 0.7rem;
-  background: #6494ed4b;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  transition: all 0.5s ease-out;
 }
 
 .form {
@@ -157,7 +195,7 @@ input[type="password"],
   outline: none;
   font-size: 1rem;
   box-sizing: border-box;
-  border: 1px solid #333;
+  border: 1px solid var(--secondary-color);
   border-radius: 5px;
   text-overflow: ellipsis;
 }
@@ -173,9 +211,34 @@ input[type="password"],
   font-size: 1rem;
   box-sizing: border-box;
   border: none;
-  border-radius: 5px;
   text-transform: uppercase;
   cursor: pointer;
+  color: var(--secondary-color);
+  transition: all 0.2s ease-out;
+}
+
+.btn {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  transition: all 0.2s ease-out;
+}
+
+.create-task > input[type="submit"]:hover {
+  color: #fff;
+  background-color: var(--success);
+  transition: all 0.2s ease-out;
+}
+
+.create-task > input[type="reset"]:hover {
+  color: #fff;
+  background-color: var(--danger);
+  transition: all 0.2s ease-out;
 }
 
 .create-task > input[type="submit"] {
@@ -206,7 +269,7 @@ input[type="password"],
 .box-open > div {
   height: 250px;
   width: 300px;
-  background-color: white;
+  background-color: var(--primary-color);
   position: relative;
   top: 50%;
   left: 50%;
@@ -240,8 +303,9 @@ input[type="password"],
 .sidebar {
   flex: 1;
   height: 100vh;
-  border-right: 2px solid black;
   min-width: 200px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .sidebar > ul > li {
@@ -249,7 +313,19 @@ input[type="password"],
   padding: 0.5rem;
   font-size: 1.2rem;
   text-transform: capitalize;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var();
+  cursor: pointer;
+}
+
+.sidebar > ul > li:hover {
+  background-color: var(--dark-primary);
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.current {
+  background-color: var(--dark-primary);
+  transition: all 0.3s ease-in;
 }
 
 .task-board {
@@ -263,28 +339,43 @@ input[type="password"],
   margin-right: 1rem;
 }
 
+.line1,
+.line2,
+.line3 {
+  pointer-events: none;
+}
+
 .burger > div {
   height: 2px;
   width: 1rem;
-  background: black;
+  background: var(--secondary-color);
   margin-bottom: 0.2rem;
 }
 
 #create,
 #edit,
-#delete {
+#delete,
+#back-btn {
   height: 1.5rem;
   width: 4rem;
   box-sizing: content-box;
   font-weight: 500;
   border: none;
-  border-radius: 0.5rem;
   outline: none;
   cursor: pointer;
+  margin: 0 0.2rem;
+  transition: all 0.3s ease-out;
+  color: var(--secondary-color);
 }
 
 #create {
   margin: 1rem 0;
+}
+
+#create:hover {
+  background: var(--dark-primary);
+  color: #fff;
+  transition: all 0.3s ease-out;
 }
 
 .tasks {
@@ -293,15 +384,31 @@ input[type="password"],
   max-width: 500px;
 }
 
+.no-task {
+  width: fit-content;
+  height: fit-content;
+  margin: 3rem auto;
+}
+
+.no-task > h1 > span {
+  color: var(--danger);
+  display: inline-block;
+}
+
+.no-task > p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
 .task {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--secondary-color);
 }
 
 .task:last-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 .task-content {
@@ -309,6 +416,99 @@ input[type="password"],
   justify-content: flex-start;
   align-items: center;
   padding: 0.5rem;
+}
+
+#edit:hover {
+  background: var(--success);
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+#delete:hover {
+  background: var(--danger);
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+.buttons > input[type="button"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.task:hover > .buttons > input[type="button"] {
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  pointer-events: visibleFill;
+}
+
+/* Profile */
+
+#profile {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  padding: 2rem;
+  padding-top: 20vh;
+}
+
+#profile > div {
+  padding: 2rem 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5rem;
+}
+
+#profile > div > div {
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+#profile .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--dark-primary);
+  box-sizing: border-box;
+}
+
+.data {
+  width: 90%;
+  margin: auto;
+  border-spacing: 1rem;
+}
+
+td {
+  border-bottom: 2px solid var(--secondary-color);
+  color: #fff;
+  background: var(--dark-primary);
+  border-collapse: collapse;
+  padding: 0.3rem 0.5rem;
+  margin: 0.5rem;
+  text-align: center;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+#back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  background-color: #fff;
+  padding: 3px;
+  box-sizing: border-box;
+  height: 1.7rem;
+  width: 5rem;
+}
+
+#back-btn > span {
+  display: block;
+  width: fit-content;
+  margin: auto;
+}
+
+#back-btn:hover {
+  background: var(--dark-primary);
+  color: #fff;
+  transition: all 0.3s ease-out;
 }
 
 /* Responiveness */
@@ -324,6 +524,10 @@ input[type="password"],
     margin: auto;
   }
 
+  .validation {
+    margin-top: 0;
+  }
+
   #dashboard {
     display: block;
     width: 100vw;
@@ -335,6 +539,7 @@ input[type="password"],
     position: absolute;
     top: 0;
     transform: translate3d(-200px, 0, 0);
+    transition: all 0.5s ease-in-out;
   }
 
   .open {
@@ -346,6 +551,10 @@ input[type="password"],
     display: inline-block;
     width: 90vw;
     height: 100vh;
+  }
+
+  .disabled {
+    pointer-events: none;
   }
 
   .burger {
@@ -361,6 +570,11 @@ input[type="password"],
   .cross {
     left: calc(200px - 2rem);
     transition: all 0.7s ease-out;
+    pointer-events: visible;
+  }
+
+  .cross > div {
+    background: var(--primary-color);
   }
 
   .cross > .line1 {
@@ -380,6 +594,18 @@ input[type="password"],
 }
 
 @media screen and (max-width: 480px) {
+  .hide-sm > span {
+    display: none;
+  }
+
+  .tasks {
+    width: 90vw;
+  }
+
+  .task-board {
+    padding: 2rem 1rem;
+  }
+
   .validation {
     padding: 2rem 0;
   }

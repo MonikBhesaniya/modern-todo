@@ -35,7 +35,7 @@ router.post(
 
       await task.save();
 
-      res.json({ task });
+      res.json(task);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
@@ -53,6 +53,7 @@ router.put(
     [
       check("title", "Title is required").notEmpty(),
       check("catagory", "Catagory is required").notEmpty(),
+      check("isCompleted", "Completed is required").notEmpty(),
     ],
   ],
   async (req, res) => {
@@ -62,20 +63,20 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      const { title, catagory } = req.body;
+      const { title, catagory, isCompleted } = req.body;
       const id = mongoose.Types.ObjectId(req.params.task_id);
       let task = await Task.findOne({ _id: id });
       if (!task) {
-        return res.status(400).json({ errors: [{ msg: "Invalid Task ID" }] });
+        return res.status(404).json({ msg: "Task not found" });
       }
 
       task = await Task.findOneAndUpdate(
         { _id: id },
-        { $set: { title, catagory } },
+        { $set: { title, catagory, isCompleted } },
         { new: true }
       );
 
-      res.json({ task });
+      res.json(task);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
@@ -95,10 +96,11 @@ router.delete(
       const id = mongoose.Types.ObjectId(req.params.task_id);
       let task = await Task.findOne({ _id: id });
       if (!task) {
-        return res.status(400).json({ errors: [{ msg: "Invalid Task ID" }] });
+        return res.status(400).json({ msg: "Invalid Task ID" });
       }
 
-      task = await Task.findOneAndDelete({ _id: id });
+      await Task.findOneAndDelete({ _id: id });
+      res.json();
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
@@ -112,7 +114,7 @@ router.delete(
 router.get("/", auth, async (req, res) => {
   try {
     const tasks = await Task.find({ user: req.user.id });
-    res.json({ tasks });
+    res.json(tasks);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
