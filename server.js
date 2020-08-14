@@ -11,7 +11,7 @@ app.use("/api/user", require("./Routes/api/user"));
 app.use("/api/auth", require("./Routes/api/auth"));
 app.use("/api/task", require("./Routes/api/task"));
 
-if (process.env.NODE_ENV) {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
