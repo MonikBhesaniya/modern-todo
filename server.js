@@ -7,9 +7,9 @@ const app = express();
 
 app.use(express.json({ extended: false }));
 
-app.use("/api/user", require("./routes/api/user"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/task", require("./routes/api/task"));
+app.use("/api/user", require("./Routes/api/user"));
+app.use("/api/auth", require("./Routes/api/auth"));
+app.use("/api/task", require("./Routes/api/task"));
 
 if (process.env.NODE_ENV) {
   app.use(express.static("client/build"));
