@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://Admin:MDGxjf7lwFsQMmDq@cluster0.tghah.mongodb.net/ToDo?retryWrites=true&w=majority",
-  "jwtSecret": "myJwtSecret",
-  "githubclientid": "aeef51a83b936b1c12af",
-  "githubsecret": "4e5cf6362ed62d3e5461277699b77b254465d297"
-}
