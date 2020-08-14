@@ -1,10 +1,8 @@
 import {
   REGISTER_SUCCESS,
-  REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
-  LOGIN_FAIL,
   LOGOUT,
 } from "./types";
 import axios from "axios";
@@ -58,7 +56,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     }
 
     dispatch({
-      type: REGISTER_FAIL,
+      type: AUTH_ERROR,
     });
   }
 };
@@ -90,7 +88,7 @@ export const login = (email, password) => async (dispatch) => {
     }
 
     dispatch({
-      type: LOGIN_FAIL,
+      type: AUTH_ERROR,
     });
   }
 };

@@ -15,8 +15,6 @@ const Dashboard = ({ getTasks, loadUser }) => {
     current: "work",
   });
 
-  console.log(mode);
-
   useEffect(() => {
     loadUser();
     getTasks();

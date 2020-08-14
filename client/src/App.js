@@ -9,6 +9,11 @@ import { loadUser } from "./actions/auth";
 import store from "./store";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/profile/Profile";
+import setAuthToken from "./utils/setAuthToken";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   useEffect(() => {
