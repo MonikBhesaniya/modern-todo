@@ -123,6 +123,7 @@ body {
 .landing-inner {
   flex: 1;
   padding: 2rem;
+  max-width: 450px;
 }
 
 .large {
@@ -143,8 +144,10 @@ body {
 .validation {
   flex: 1;
   padding: 2rem;
-  margin-top: 2rem;
   min-height: 280px;
+  max-width: 450px;
+  margin: auto;
+  margin-top: 2rem;
   background: var(--dark-primary);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease-out;
@@ -214,13 +217,13 @@ input[type="password"],
   text-transform: uppercase;
   cursor: pointer;
   color: var(--secondary-color);
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .btn {
   color: var(--primary-color);
   background-color: var(--secondary-color);
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .btn:hover {
